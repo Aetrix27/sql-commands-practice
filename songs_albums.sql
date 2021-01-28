@@ -9,7 +9,7 @@
 
 CREATE TABLE Albums (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(70) NOT NULL,
+    title VARCHAR(70) NOT NULL,
     artist VARCHAR(70) NOT NULL,
     year_published INTEGER NOT NULL
 );
@@ -39,7 +39,7 @@ VALUES
 
 
 INSERT INTO Albums
-    (name, artist, year_published)
+    (title, artist, year_published)
 VALUES
     ('The Dark Side of the Moon', 'Pink Floyd', 1973),
     ('Abbey Road', 'The Beatles', 1969),
@@ -52,17 +52,16 @@ VALUES
 /* Queries */
 
 SELECT * FROM Songs;
-
 SELECT * FROM Albums;
 
 /* 
  * TODO: Write a table join query to construct a table of Song Name : Album Name
-SELECT Songs.name FROM Songs
-JOIN Albums ON Albums.id = Songs.album_id
 
+SELECT Songs.name FROM Songs
  */
 
-
+SELECT Songs.name, Albums.title FROM Songs
+JOIN Albums ON Albums.id = Songs.album_id
 
 /*
  * TODO: Find all albums published between 1970 and 1980.
