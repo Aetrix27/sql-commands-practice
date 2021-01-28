@@ -34,7 +34,7 @@ VALUES
     ('Too Late', 5),
     ('Life in the Fast Lane', 3),
     ('Darlington County', 4),
-    ('Darlington County', 1)
+    ('Money', 1)
 ;
 
 
@@ -61,16 +61,23 @@ SELECT Songs.name FROM Songs
  */
 
 SELECT Songs.name, Albums.title FROM Songs
-JOIN Albums ON Albums.id = Songs.album_id
+JOIN Albums ON Albums.id = Songs.album_id;
 
 /*
  * TODO: Find all albums published between 1970 and 1980.
  */
 
+SELECT Albums.title FROM Albums 
+WHERE Albums.year_published > 1970 AND Albums.year_published < 1980;
+
 /*
  * TODO: Find all songs on albums published between 1970 and 1980. 
  *(Hint: Use a table join.)
  */
+
+SELECT Songs.name FROM Albums JOIN Songs
+ON Albums.id = Songs.album_id
+WHERE Albums.year_published > 1970 AND Albums.year_published < 1980;
  
 /*
  * TODO: Find all songs on albums with names containing 'California'.
